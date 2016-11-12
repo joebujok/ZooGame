@@ -48,10 +48,13 @@ public class RunningState : IDogState
         }
         float step = statePatternDog.speed * Time.deltaTime;
         statePatternDog.speed = 1;
+        statePatternDog.anim.SetFloat("Speed", statePatternDog.speed) ;
 
         statePatternDog.energy.EnergyLevel = Mathf.Max( statePatternDog.energy.EnergyLevel - (energyDeclineRate * Time.deltaTime),0);
 
         statePatternDog.transform.position = Vector3.MoveTowards(statePatternDog.transform.position, targetDest, step);
+
+      
         if (statePatternDog.transform.position == targetDest)
         {
             hasReachedDestination = true;

@@ -36,6 +36,8 @@ public class SleepingState :IDogState
 
     private void Sleep()
     {
+        this.statePatternDog.speed = 0f;
+        this.statePatternDog.anim.SetFloat("Speed", 0f);
         float currentEnergy = statePatternDog.energy.EnergyLevel;
         if (!sleeping) {
             energyNeededToWake = Random.Range(80f, 100f);

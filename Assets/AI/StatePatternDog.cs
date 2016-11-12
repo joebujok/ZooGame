@@ -7,6 +7,7 @@ public class StatePatternDog : MonoBehaviour
     public float speed;
     public Energy energy;
     public Selection selection;
+    public Animator anim;
     
 
 
@@ -32,6 +33,7 @@ public class StatePatternDog : MonoBehaviour
         walkingState = new WalkingState(this);
         runningState = new RunningState(this);
         sleepingState = new SleepingState(this);
+        anim = GetComponent<Animator>();
         energy = GetComponent<Energy>();
         selection = GetComponent<Selection>();
         Debug.Log("my STARTING energy level is : " + energy.EnergyLevel);
